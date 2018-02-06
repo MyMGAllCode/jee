@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h> <b>Full Application form using Different type Component of
+		HTML </b>
+	</h1>
+	<table align="left">
+		<tr>
+			<form action="Register" method="post" return onSubmit()>
+		<tr>
+			<td>Name:</td>
+			<td><input type="text" name="name" /></td>
+		</tr>
+		<tr>
+			<td>Age:</td>
+			<td><input type="text" name="age" /></td>
+		</tr>
+		<tr>
+			<td>Gender:</td>
+			<td><input type="radio" name="gen" value="M" CHECKED />Male
+				<input type="radio" name="ms" value="F" /></td>Female
+		</tr>
+
+		<tr>
+			<td>Marrital Status:</td>
+			<td><input type="radio" name="pms" value="Married" CHECKED />Married
+			</td>
+			<td><input name="pms" type="radio" value="single" />Single</td>
+		</tr>
+
+		<tr>
+			<td>Qualifification</td>
+			<td><select name="pquly">
+					<option value="BE">BE/B.TECH</option>
+
+					<option value="mtech">M.Tech</option>
+
+					<option value="bsc">B.Sc</option>
+
+					<option value="bcom">B.Com</option>
+
+
+			</select></td>
+		</tr>
+		<tr>
+			<td>Courses:</td>
+			<td><select name="courses" multiple>
+					<option value="cjava">Core Java</option>
+					<option value="advjava">Adv Java</option>
+					<option value="Webservices">XML/Web Services</option>
+					<option value="spring">Spring</option>
+					<option value="Hibernate">Hibernate</option>
+
+
+			</select></td>
+			
+				<tr>
+					<td>Address:</td>
+					<td><input type="textarea" name="address" rows="10" cols="40" /></td>
+				</tr>
+				
+		<tr>
+			<td>Hobbies:</td>
+			<td><input type="checkbox" value="reading" name="reading" />Reading
+				&nbsp;<input type="checkbox" value="meditation" name="meditation" />Meditation
+			</td>
+		</tr>
+		<tr>
+		<td><input type="submit" value="Submit"/><input type="reset" value="Cancel"/> </td>
+		</tr>
+
+		</form>
+		</tr>
+	</table>
+</body>
+</html>
