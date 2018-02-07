@@ -9,7 +9,7 @@ package com.test;
 	  
 	  String host="smtp.gmail.com";  
 	  final String user="dktech89@gmail.com";//change accordingly  
-	  //final String password="gmaildkpeng1989";//change accordingly  
+	  //final String password="";//change accordingly  
 	    
 	  String to="dharmendrakp89@gmail.com";//change accordingly  
 	  
@@ -54,7 +54,7 @@ package com.test;
 	 }  */
 	  
 	  final String username = "dharmendrakp89@gmail.com";
-		final String password = "gmailengdkp1989";
+		final String password = "";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
