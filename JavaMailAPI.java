@@ -52,6 +52,85 @@ package com.test;
 	   
 	     } catch (MessagingException e) {e.printStackTrace();}  
 	 }  */
+		 /*
+		 <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<property name="LOG_FILE" value="/logs/tigslogs/tigs.log" />
+	<property name="PERFORMANCE_LOG_FILE" value="/logs/tigslogs/performance/tigsperformance.log" />
+
+	<springProfile name="dev">
+		<include
+			resource="org/springframework/boot/logging/logback/console-appender.xml" />
+		<appender name="ROLLING-FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{70}.%M - %msg%n
+				</pattern>
+			</encoder>
+			<file>${LOG_FILE}</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
+			</rollingPolicy>
+		</appender>
+		<appender name="PERFORMANCE_ROLLING-FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{70}.%M - %msg%n
+				</pattern>
+			</encoder>
+			<file>${PERFORMANCE_LOG_FILE}</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${PERFORMANCE_LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			</rollingPolicy>
+		</appender>
+		<root level="INFO,ERROR">
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="ROLLING-FILE" />
+		</root>
+		
+		<logger name="PERFORMANCE_LOG" level="info" additivity="false">
+			<appender-ref ref="PERFORMANCE_ROLLING-FILE" />
+		</logger>
+	</springProfile>
+
+	<springProfile name="prod">
+		<appender name="ROLLING-FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{70}.%M - %msg%n
+				</pattern>
+			</encoder>
+			<file>${LOG_FILE}</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
+				<!-- <timeBasedFileNamingAndTriggeringPolicy
+					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+					<maxFileSize>100MB</maxFileSize>
+				</timeBasedFileNamingAndTriggeringPolicy>-->
+			</rollingPolicy>
+		</appender>
+		<appender name="PERFORMANCE_ROLLING-FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{70}.%M - %msg%n
+				</pattern>
+			</encoder>
+			<file>${PERFORMANCE_LOG_FILE}</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${PERFORMANCE_LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+			</rollingPolicy>
+		</appender>
+
+		<root level="INFO,ERROR">
+			<appender-ref ref="ROLLING-FILE" />
+		</root>
+		<logger name="PERFORMANCE_LOG" level="info" additivity="false">
+			<appender-ref ref="PERFORMANCE_ROLLING-FILE" />
+		</logger>
+	</springProfile>
+
+</configuration>*/
 	  
 	  final String username = "dharmendrakp89@gmail.com";
 		final String password = "";
