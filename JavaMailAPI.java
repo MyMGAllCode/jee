@@ -56,8 +56,8 @@ package com.test;
 		 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
-	<property name="LOG_FILE" value="/logs/tigslogs/tigs.log" />
-	<property name="PERFORMANCE_LOG_FILE" value="/logs/tigslogs/performance/tigsperformance.log" />
+	<property name="LOG_FILE" value="/logs/dktechlog/dktech.log" />
+	<property name="PERFORMANCE_LOG_FILE" value="/logs/dktechlog/performance/dktechperformance.log" />
 
 	<springProfile name="dev">
 		<include
@@ -106,7 +106,7 @@ package com.test;
 				<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
 				<!-- <timeBasedFileNamingAndTriggeringPolicy
 					class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-					<maxFileSize>100MB</maxFileSize>
+					<maxFileSize>200MB</maxFileSize>
 				</timeBasedFileNamingAndTriggeringPolicy>-->
 			</rollingPolicy>
 		</appender>
