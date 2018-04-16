@@ -1,2 +1,5 @@
 Spring DATA JPA Pagination  
 https://docs.spring.io/spring-data/rest/docs/2.0.0.M1/reference/html/paging-chapter.html
+
+Marshling and Unmarshling 
+https://tutorialspointexamples.com/jaxb-marshalling-convert-java-object-to-xml-example-using-one-pojo/
