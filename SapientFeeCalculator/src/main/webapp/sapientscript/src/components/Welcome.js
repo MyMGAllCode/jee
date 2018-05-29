@@ -4,7 +4,7 @@ class Welcome extends Component{
   constructor(props){
     super(props);
     this.state={
-      //baseUrl:"http://192.168.0.26:8080/",
+      //baseUrl:"http://0.0.0.0:8080/",
       baseUrl:"/SapientFeeCalculator/",
       uploadFilReq:{file:null},
       uploadFile:null,
