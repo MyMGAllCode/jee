@@ -107,3 +107,15 @@ public static Date getFormattedEndDateTime(Date date) {
 			
 			REACT Didmount 
 			https://www.jqwidgets.com/react/react-grid/react-grid-dataexport.htm
+			
+			
+			////Removinfg cache from client side 
+			
+			public class SecurityConfig extends WebSecurityConfigurerAdapter { 
+@Override
+public void configure(HttpSecurity http) throws Exception {
+   http.headers().defaultsDisabled()
+        .addHeaderWriter(new StaticHeadersWriter("Cache-Control"," no-cache,max-age=0, must-revalidate"))
+        .addHeaderWriter(new StaticHeadersWriter("Expires","0"));
+ }
+}
