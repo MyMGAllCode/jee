@@ -119,3 +119,67 @@ public void configure(HttpSecurity http) throws Exception {
         .addHeaderWriter(new StaticHeadersWriter("Expires","0"));
  }
 }
+
+///////////////
+
+logs in spring
+
+WEB-INF\jboss-deployment-structure.xml
+
+<jboss-deployment-structure>
+    <deployment>
+        <exclusions>
+            <module name='org.slf4j' />
+            <module name='org.slf4j.impl' />
+        </exclusions>
+    </deployment>
+</jboss-deployment-structure>
+
+=================================
+
+resources\logback-spring.xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<property name="LOG_FILE" value="/logs/filename.log" />
+
+	<springProfile name="dev">
+		<include
+			resource="org/springframework/boot/logging/logback/console-appender.xml" />
+		<appender name="ROLLING-FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{70}.%M - %msg%n
+				</pattern>
+			</encoder>
+			<file>${LOG_FILE}</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
+			</rollingPolicy>
+		</appender>
+		<root level="INFO,ERROR">
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="ROLLING-FILE" />
+		</root>
+	</springProfile>
+
+	<springProfile name="prod">
+		<appender name="ROLLING-FILE"
+			class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<encoder>
+				<pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{70}.%M - %msg%n
+				</pattern>
+			</encoder>
+			<file>${LOG_FILE}</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd_HH}.log</fileNamePattern>
+			</rollingPolicy>
+		</appender>
+		<root level="INFO,ERROR">
+			<appender-ref ref="ROLLING-FILE" />
+		</root>
+	</springProfile>
+
+</configuration>
