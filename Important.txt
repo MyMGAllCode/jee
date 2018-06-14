@@ -4,6 +4,12 @@ https://docs.spring.io/spring-data/rest/docs/2.0.0.M1/reference/html/paging-chap
 Marshling and Unmarshling 
 https://tutorialspointexamples.com/jaxb-marshalling-convert-java-object-to-xml-example-using-one-pojo/
 
+
+==================
+HashMap Internal Working 
+https://examples.javacodegeeks.com/core-java/maphashmap-works-internally-java/
+==================
+
 React Modal Backdrop 
 https://react-bootstrap.github.io/react-overlays/#modals
 
@@ -183,3 +189,47 @@ resources\logback-spring.xml
 	</springProfile>
 
 </configuration>
+
+=========================
+React Alert (Dialog ) 
+<MYModals onRef={ref => (this.MYModals = ref)} />
+
+
+--------------------
+
+import React, { Component } from "react";
+import Dialog from "react-bootstrap-dialog";
+
+class MYModals extends Component {
+  componentDidMount() {
+    this.props.onRef(this);
+  }
+  componentWillUnmount() {
+    this.props.onRef(undefined);
+  }
+
+  showAlert(msg) {
+    // alert code start
+    this.dialog.show({
+      body: <h4 className="text-center">{msg}</h4>,
+      actions: [Dialog.OKAction()],
+      bsSize: "medium",
+      onHide: dialog => {
+        dialog.hide();
+      }
+    });
+  } // alert code end
+
+  render() {
+    return (
+      <Dialog
+        ref={el => {
+          this.dialog = el;
+        }}
+      />
+    );
+  }
+}
+export default MYModals;
+
+===========================
