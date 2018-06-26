@@ -233,3 +233,20 @@ class MYModals extends Component {
 export default MYModals;
 
 ===========================
+
+@SuppressWarnings({ "unchecked", "rawtypes" })
+	@ExceptionHandler(MyException.class)
+	public final ResponseEntity<Object> handleTIGSException(MyException ex, WebRequest request, Locale locale) {
+
+		logger.error("Error Code: " + ex.getErrorCode() + "Error Message: " + ex.getErrorMessage());
+		ApiResponse apiResponse = null;
+		if (ex.getErrors() != null && !ex.getErrors().isEmpty()) {
+			apiResponse = new ApiResponse(ex.getErrorCode(), ex.getErrors().toString().substring(1, ex.getErrors().toString().length() - 1));
+		} else {
+			apiResponse = new ApiResponse(ex.getErrorCode(),
+					messageSource.getMessage(ex.getErrorCode(), new Object[] {}, locale));
+		}
+		
+		logger.error("TIGSException: " + apiResponse.getStatusCode() + "|"+ apiResponse.getStatusMessage());
+		return new ResponseEntity(apiResponse, HttpStatus.EXPECTATION_FAILED);
+	}
