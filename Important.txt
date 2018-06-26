@@ -236,7 +236,7 @@ export default MYModals;
 
 @SuppressWarnings({ "unchecked", "rawtypes" })
 	@ExceptionHandler(MyException.class)
-	public final ResponseEntity<Object> handleTIGSException(MyException ex, WebRequest request, Locale locale) {
+	public final ResponseEntity<Object> handleMyException(MyException ex, WebRequest request, Locale locale) {
 
 		logger.error("Error Code: " + ex.getErrorCode() + "Error Message: " + ex.getErrorMessage());
 		ApiResponse apiResponse = null;
@@ -247,6 +247,6 @@ export default MYModals;
 					messageSource.getMessage(ex.getErrorCode(), new Object[] {}, locale));
 		}
 		
-		logger.error("TIGSException: " + apiResponse.getStatusCode() + "|"+ apiResponse.getStatusMessage());
+		logger.error("MyException: " + apiResponse.getStatusCode() + "|"+ apiResponse.getStatusMessage());
 		return new ResponseEntity(apiResponse, HttpStatus.EXPECTATION_FAILED);
 	}
